@@ -16,6 +16,7 @@ public class RegisterTest extends BaseTest{
                 .getDashboardLink();
 
         Assert.assertEquals(dashboardLink.getText(),"Dashboard");
+        System.out.println(randomNumber);
     }
 
     @Test

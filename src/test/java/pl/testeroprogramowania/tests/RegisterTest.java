@@ -5,17 +5,17 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import pl.testeroprogramowania.pages.HomePage;
 
-public class RegisterTest extends BaseTest{
+public class RegisterTest extends BaseTest {
 
     @Test
     public void registerUserTest() {
-        int randomNumber = (int) (Math.random()*1000);
+        int randomNumber = (int) (Math.random() * 1000);
 
         WebElement dashboardLink = new HomePage(driver).openMyAccoutPage()
-                .registerUserValidData("test"+randomNumber+"@test.pl","haslotestowe")
+                .registerUserValidData("test" + randomNumber + "@test.pl", "haslotestowe")
                 .getDashboardLink();
 
-        Assert.assertEquals(dashboardLink.getText(),"Dashboard");
+        Assert.assertEquals(dashboardLink.getText(), "Dashboard");
         System.out.println(randomNumber);
     }
 

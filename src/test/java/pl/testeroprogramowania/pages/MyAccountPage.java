@@ -37,12 +37,12 @@ public class MyAccountPage {
     }
 
     public LoggedUserPage registerUserValidData(String email, String password) {
-        registerUser(email,password);
+        registerUser(email, password);
         return new LoggedUserPage(driver);
     }
 
     public MyAccountPage registerUserInvalidData(String email, String password) {
-        registerUser(email,password);
+        registerUser(email, password);
         return this;
     }
 

@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+import pl.testeroprogramowania.pages.models.Customer;
 
 public class AddressDetailsPage {
 
@@ -16,14 +18,12 @@ public class AddressDetailsPage {
     @FindBy(id = "billing_company")
     private WebElement billingCompanyInput;
 
-    @FindBy(id = "select2-billing_country-container")
+    @FindBy(id = "billing_country")
     private WebElement billingCountrySelect;
 
     @FindBy(id = "billing_address_1")
     private WebElement billingAddres1Input;
 
-    @FindBy(id = "billing_address_2")
-    private WebElement billingAddres2Input;
 
     @FindBy(id = "billing_postcode")
     private WebElement billingPostcodeInput;
@@ -40,7 +40,7 @@ public class AddressDetailsPage {
     @FindBy(id = "order_comments")
     private WebElement orderCommentsInput;
 
-    @FindBy(id = "place_order")
+    @FindBy(xpath = "//*[@id=\"place_order\"]")
     private WebElement placeOrderButton;
 
 
@@ -52,20 +52,29 @@ public class AddressDetailsPage {
 
     }
 
-    public void enterData(String firstName, String lastName,
-                          String company, String adres1,
-                          String adres2, String postcode,
-                          String city, String phone, String email) {
-        billingFirstNameInput.sendKeys(firstName);
-        billingLastNameInput.sendKeys(lastName);
-        billingCompanyInput.sendKeys(company);
-        billingAddres1Input.sendKeys(adres1);
-        billingAddres2Input.sendKeys(adres2);
-        billingPostcodeInput.sendKeys(postcode);
-        billingCityInput.sendKeys(city);
-        billingPhoneInput.sendKeys(phone);
-        billingEmailInput.sendKeys(email);
-        placeOrderButton.click();
+    public OrderDetailsPage fillAddressDetails(Customer customer, String comments) {
+        billingFirstNameInput.sendKeys(customer.getFirstName());
+        billingLastNameInput.sendKeys(customer.getLastName());
+        billingCompanyInput.sendKeys(customer.getCompany());
+
+        Select countrySelect = new Select(billingCountrySelect);
+        countrySelect.selectByVisibleText(customer.getCountry());
+
+        billingAddres1Input.sendKeys(String.format("%s %s",
+                customer.getStreet(),customer.getHouseNumber()));
+        billingPostcodeInput.sendKeys(customer.getZipCode());
+        billingCityInput.sendKeys(customer.getCity());
+        billingPhoneInput.sendKeys(customer.getPhone());
+        billingEmailInput.sendKeys(customer.getEmail());
+        orderCommentsInput.sendKeys(comments);
+        try {
+            placeOrderButton.click();
+        }
+        catch(org.openqa.selenium.StaleElementReferenceException ex)
+        {
+            placeOrderButton.click();
+        }
+        return new OrderDetailsPage(driver);
     }
 
 

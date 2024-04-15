@@ -4,7 +4,7 @@ public class Customer {
 
     private String firstName;
     private String lastName;
-    private String companyName;
+    private String company;
     private String country;
     private String street;
     private String houseNumber;
@@ -29,12 +29,12 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public String getCompanyName() {
-        return companyName;
+    public String getCompany() {
+        return company;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
     public String getCountry() {

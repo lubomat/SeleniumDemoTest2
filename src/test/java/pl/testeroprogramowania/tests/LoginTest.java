@@ -4,7 +4,6 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pl.testeroprogramowania.pages.HomePage;
-import pl.testeroprogramowania.pages.LoggedUserPage;
 
 public class LoginTest extends BaseTest {
 

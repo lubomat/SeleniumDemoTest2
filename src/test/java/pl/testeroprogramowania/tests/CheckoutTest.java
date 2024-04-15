@@ -12,6 +12,10 @@ public class CheckoutTest extends BaseTest {
                 .openProduct("Java Selenium WebDriver")
                 .addProductToCart()
                 .viewCart()
-                .openAddressDetails();
+                .openAddressDetails()
+                .enterData("Andrzej","Testowy",
+                        "Firma", "Warszawska",
+                        "150","11111","Warszawa",
+                        "123123123","testowy@test.pl");
     }
 }

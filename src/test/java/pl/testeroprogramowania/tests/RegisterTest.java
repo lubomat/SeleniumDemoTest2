@@ -12,8 +12,10 @@ public class RegisterTest extends BaseTest {
     public void registerUserTest() {
         int randomEmailNumber = (int) (Math.random() * 1000);
 
-        WebElement dashboardLink = new HomePage(driver).openMyAccoutPage()
-                .registerUserValidData("test" + randomEmailNumber + "@test.pl", "haslotestowe")
+        WebElement dashboardLink = new HomePage(driver)
+                .openMyAccoutPage()
+                .registerUserValidData(
+                        "test" + randomEmailNumber + "@test.pl", "haslotestowe")
                 .getDashboardLink();
 
         Assert.assertEquals(dashboardLink.getText(), "Dashboard");
@@ -22,8 +24,10 @@ public class RegisterTest extends BaseTest {
 
     @Test
     public void registerUserWithSameEmailTest() {
-        WebElement error = new HomePage(driver).openMyAccoutPage()
-                .registerUserInvalidData("test@test.pl", "haslotestowe")
+        WebElement error = new HomePage(driver)
+                .openMyAccoutPage()
+                .registerUserInvalidData(
+                        "test@test.pl", "haslotestowe")
                 .getError();
 
         Assert.assertTrue(error.getText().contains(

@@ -13,7 +13,6 @@ public class Customer {
     private String phone = "111111111";
     private String email = "testowe@test.pl";
 
-
     public String getFirstName() {
         return firstName;
     }

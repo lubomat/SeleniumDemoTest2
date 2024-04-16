@@ -6,7 +6,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ProductListPage {
 
-
     private WebDriver driver;
 
     public ProductListPage(WebDriver driver) {
@@ -18,4 +17,5 @@ public class ProductListPage {
         driver.findElement(By.xpath("//h2[text()='"+title+"']")).click();
         return new ProductPage(driver);
     }
+
 }

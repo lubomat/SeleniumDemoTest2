@@ -29,4 +29,5 @@ public class CheckoutTest extends BaseTest {
         Assert.assertEquals(orderDetailsPage.getProductName()
                 .getText(),"Java Selenium WebDriver × 1");
     }
+
 }

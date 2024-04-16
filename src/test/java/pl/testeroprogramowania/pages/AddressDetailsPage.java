@@ -24,7 +24,6 @@ public class AddressDetailsPage {
     @FindBy(id = "billing_address_1")
     private WebElement billingAddres1Input;
 
-
     @FindBy(id = "billing_postcode")
     private WebElement billingPostcodeInput;
 
@@ -42,7 +41,6 @@ public class AddressDetailsPage {
 
     @FindBy(xpath = "//*[@id=\"place_order\"]")
     private WebElement placeOrderButton;
-
 
     private WebDriver driver;
 
@@ -76,6 +74,5 @@ public class AddressDetailsPage {
         }
         return new OrderDetailsPage(driver);
     }
-
 
 }

@@ -15,7 +15,6 @@ public class CartPage {
     public CartPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
-
     }
 
     public AddressDetailsPage openAddressDetails() {

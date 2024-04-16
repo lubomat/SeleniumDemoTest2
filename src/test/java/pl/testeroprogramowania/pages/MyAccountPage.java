@@ -28,7 +28,6 @@ public class MyAccountPage {
     @FindBy(name = "login")
     private WebElement loginButton;
 
-
     private WebDriver driver;
 
     public MyAccountPage(WebDriver driver) {
@@ -73,4 +72,5 @@ public class MyAccountPage {
     public WebElement getError() {
         return regError;
     }
+
 }

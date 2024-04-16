@@ -26,7 +26,6 @@ public class LoginTest extends BaseTest {
                 .getError();
 
         Assert.assertTrue(error.getText().contains("Incorrect username or password."));
-
-
     }
+
 }

@@ -13,7 +13,6 @@ public class OrderDetailsPage {
     @FindBy(xpath = "//td[contains(@class,'product-name')]")
     private WebElement productName;
 
-
     private WebDriver driver;
 
     public OrderDetailsPage(WebDriver driver) {
@@ -28,4 +27,5 @@ public class OrderDetailsPage {
     public WebElement getProductName() {
         return productName;
     }
+
 }

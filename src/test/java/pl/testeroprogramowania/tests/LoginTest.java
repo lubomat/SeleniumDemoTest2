@@ -11,7 +11,7 @@ public class LoginTest extends BaseTest {
     private void loginValidTest() {
         WebElement dashboardLink = new HomePage(driver)
                 .openMyAccoutPage()
-                .logInValidData("test912@test.pl", "haslotestowe")
+                .logInValidData("test290@test.pl", "haslotestowe")
                 .getDashboardLink();
 
 
@@ -19,10 +19,10 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    private void loginInvalidTest() {
+    private void loginInvalidDataTest() {
         WebElement error = new HomePage(driver)
                 .openMyAccoutPage()
-                .logInInvalidData("test150@test.pl", "haslotestowe")
+                .logInInvalidData("test290@test.pl", "haslotestowe1")
                 .getError();
 
         Assert.assertTrue(error.getText().contains("Incorrect username or password."));

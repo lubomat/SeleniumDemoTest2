@@ -1,5 +1,7 @@
 package pl.testeroprogramowania.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,6 +14,8 @@ public class HomePage {
 
     @FindBy(xpath = "//span[text()='Shop']")
     private WebElement shopLink;
+
+    private static final Logger logger = LogManager.getLogger();
 
     private WebDriver driver;
 

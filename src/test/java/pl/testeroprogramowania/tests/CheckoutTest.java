@@ -1,5 +1,7 @@
 package pl.testeroprogramowania.tests;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -11,10 +13,12 @@ public class CheckoutTest extends BaseTest {
 
     @Test
     private void checkoutTest() {
+
+        ExtentTest test = extentReports.createTest("Search Hotel Test");
         Customer customer = new Customer();
         customer.setEmail("specificemail@test.pl");
 
-
+//        test.log(Status.PASS"")
         OrderDetailsPage orderDetailsPage = new HomePage(driver)
                 .openShopPage()
                 .openProduct("Java Selenium WebDriver")

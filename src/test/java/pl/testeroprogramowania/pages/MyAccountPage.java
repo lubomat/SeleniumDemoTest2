@@ -1,5 +1,7 @@
 package pl.testeroprogramowania.pages;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,17 +32,24 @@ public class MyAccountPage {
 
     private WebDriver driver;
 
+    private static final Logger logger = LogManager.getLogger();
+
     public MyAccountPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
     }
 
     public LoggedUserPage registerUserValidData(String email, String password) {
+        logger.info("Setting email: " + email);
+        logger.info("Setting password: " + password);
         registerUser(email, password);
+        logger.info("Setting email and password done");
         return new LoggedUserPage(driver);
     }
 
     public MyAccountPage registerUserInvalidData(String email, String password) {
+        logger.info("Setting email: " + email);
+        logger.info("Setting password: " + password);
         registerUser(email, password);
         return this;
     }
